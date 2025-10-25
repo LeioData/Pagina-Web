@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Manual de Vida Individual V2 — Resumen Operativo</title>
+<style>
+  :root {
+    --primary:#0A66C2;
+    --primary-700:#084c91;
+    --bg:#f4f8ff;
+    --card:#ffffff;
+    --text:#0e1726;
+    --muted:#5b6b8c;
+    --accent:#e6f0ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    background: linear-gradient(180deg, #eaf2ff 0%, #f7fbff 30%, #ffffff 100%);
+    color: var(--text);
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    min-height: 100vh;
+  }
+  aside {
+    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-700) 100%);
+    color: white;
+    padding: 22px 18px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+  }
+  .brand .logo {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: white; display: grid; place-items: center; color: var(--primary);
+    font-weight: 800;
+  }
+  .brand .title { font-weight: 700; line-height: 1.1; }
+  .meta {
+    font-size: 12px; opacity: .9; margin-bottom: 18px;
+  }
+  nav a {
+    display: block; color: white; text-decoration: none; padding: 10px 12px; border-radius: 10px;
+    margin: 4px 0; font-size: 14px; opacity: .95;
+  }
+  nav a:hover { background: rgba(255,255,255,.12); }
+  nav .section { margin-top: 14px; margin-bottom: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; opacity: .75; }
+  main { padding: 28px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"100%\" height=\"100%\"><defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop stop-color=\"%23eaf2ff\"/><stop offset=\"1\" stop-color=\"%23ffffff\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23g)\"/></svg>') no-repeat center/cover; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .hero {
+    background: var(--card);
+    border: 1px solid #eaf0ff;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(10,102,194,.08);
+  }
+  h1 { margin: 0 0 6px; font-size: 28px; }
+  .pill {
+    display: inline-block; background: var(--accent); color: var(--primary); padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;
+  }
+  .grid {
+    display: grid; grid-template-columns: repeat(12,1fr); gap: 18px; margin-top: 22px;
+  }
+  .card {
+    grid-column: span 12;
+    background: var(--card);
+    border: 1px solid #eaf0ff;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 6px 20px rgba(10,102,194,.07);
+  }
+  @media(min-width: 900px){
+    .card.half { grid-column: span 6; }
+  }
+  h2 { font-size: 20px; margin: 0 0 12px; }
+  h3 { font-size: 16px; margin: 12px 0 8px; color: var(--primary-700); }
+  p, li { line-height: 1.55; }
+  details { background: #fbfdff; border: 1px solid #eaf0ff; border-radius: 12px; padding: 10px 12px; margin: 10px 0; }
+  summary { cursor: pointer; font-weight: 600; color: var(--primary-700); }
+  .tag { display: inline-block; padding: 4px 8px; background: #eff5ff; color: #265fa5; border-radius: 999px; font-size: 12px; margin: 2px 6px 2px 0;}
+  .footer { text-align: center; color: var(--muted); font-size: 12px; margin: 26px 0 10px; }
+  .kbd { background:#eef3ff; border:1px solid #cfe0ff; border-bottom-width:2px; padding:2px 6px; border-radius:6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .notice { background: #eaf4ff; border-left: 4px solid var(--primary); padding: 10px 12px; border-radius: 10px; color:#133b6b; }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <div class="brand">
+      <div class="logo">VI</div>
+      <div class="title">
+        Manual de Vida Individual<br/>
+        <span style="font-size:12px; opacity:.8;">Resumen operativo</span>
+      </div>
+    </div>
+    <div class="meta">
+      <div><strong>Vigencia:</strong> 22 mayo 2025</div>
+      <div><strong>Área:</strong> VP Operaciones y Técnica</div>
+    </div>
+    <nav>
+      <div class="section">Contenido</div>
+      <a href="#intro">Introducción</a>
+      <a href="#c1">Cap. 1 - Venta</a>
+      <a href="#c2">Cap. 2 - Auditoría</a>
+      <a href="#c3">Cap. 3 - Suscripción</a>
+      <a href="#c4">Cap. 4 - Entrega por Agentes</a>
+      <a href="#c5">Cap. 5 - Mantenimiento</a>
+      <a href="#c6">Cap. 6 - Endosos/Bajas/Rehab</a>
+      <a href="#c7">Cap. 7 - Siniestros</a>
+      <a href="#c8">Cap. 8 - Préstamos/Rescates</a>
+      <a href="#c9">Cap. 9</a>
+      <a href="#c10">Cap. 10 - Recaudación</a>
+      <a href="#c11">Cap. 11 - EECC</a>
+      <a href="#c12">Cap. 12 - Notificaciones</a>
+      <a href="#c13">Cap. 13 - Proveedores</a>
+      <div class="section">Archivos</div>
+      <a href="manual_vida_individual.json" download>Descargar JSON</a>
+    </nav>
+  </aside>
+  <main>
+    <div class="container">
+      <section class="hero" id="intro">
+        <span class="pill">Manual de Vida Individual V2</span>
+        <h1>Resumen ejecutivo y operativo</h1>
+        <p>Este documento sintetiza los procedimientos clave del <strong>Manual de Vida Individual</strong>, conservando el detalle relevante para análisis y gestión, en una interfaz cómoda (azul/blanco) para lectura y navegación.</p>
+        <div class="notice"><strong>Nota:</strong> Algunas secciones del manual completo no estuvieron visibles en los fragmentos procesados. Este resumen prioriza lo disponible y verificable.</div>
+      </section>
+
+      <!-- CAPITULO 1 -->
+      <section class="grid" id="c1">
+        <div class="card">
+          <h2>Capítulo 1 — Venta de Seguros Vida Individual</h2>
+          <p><span class="tag">Objetivo</span> Establecer procesos para la venta de Vida Individual.</p>
+          <h3>Base legal</h3>
+          <ul>
+            <li>Ley N° 29946 (Contrato de Seguro)</li>
+            <li>Res. SBS 4143-2019 (Conducta de Mercado)</li>
+            <li>Res. SBS 04036-2022 (Reclamos y requerimientos)</li>
+            <li>Res. SBS 1121-2017 (Comercialización de Seguros)</li>
+            <li>Ley N° 29733 (Protección de Datos Personales)</li>
+            <li>Res. SBS 3198-2013 (Pago de Primas)</li>
+            <li>Res. SBS 3202-2013 (Gestión y Pago de Siniestros)</li>
+            <li>Ley N° 29571 (Código del Consumidor)</li>
+          </ul>
+          <h3>Productos (Vida Free)</h3>
+          <ul>
+            <li><strong>Vida Free:</strong> Fondo garantizado, devolución hasta 150%.</li>
+            <li><strong>Vida Free Plus:</strong> Devolución hasta 150% o mantener fondo para rentabilidad.</li>
+            <li><strong>Vida Free Total:</strong> Retiro de fondo al término y continuidad de cobertura adicional.</li>
+          </ul>
+          <details>
+            <summary>Procedimiento — Registro y cotización</summary>
+            <ul>
+              <li>Consentimiento de datos (SMS/WhatsApp/correo).</li>
+              <li>Cotizador en ADN (SA, %DV, plan, frecuencia, periodos).</li>
+              <li>Histórico de cotizaciones → “Solicitud Digital”.</li>
+              <li>Validación biométrica (Keynua) y firma digital por SMS (6 dígitos).</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Procedimiento — Cierre de venta</summary>
+            <ul>
+              <li>Ajuste/elección de cotización; actualización de datos.</li>
+              <li>Ingreso de contratante, beneficiarios y DPS.</li>
+              <li>Validación biométrica y firma por SMS.</li>
+              <li>Link de pago de 1ra prima + afiliación a cobro recurrente.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Procedimiento — Pago 1ra prima y entrega (Emisión/Suscripción)</summary>
+            <ul>
+              <li>Pago y afiliación (misma u otra tarjeta).</li>
+              <li>Validación de ACP y documentos mínimos/adicionales.</li>
+              <li>Envío a Emisión y Suscripción; reprocesos si faltan documentos.</li>
+            </ul>
+          </details>
+          <details>
+            <summary>Procedimiento — Pago 1ra prima y entrega (ADC)</summary>
+            <ul>
+              <li>Modificación de cotización → actualización de datos.</li>
+              <li>Registro de solicitud, DPS, biometría, firma; workflow de cambio.</li>
+              <li>Traspaso de 1ra prima y verificación documental.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      <!-- CAPITULO 2 -->
+      <section class="grid" id="c2">
+        <div class="card">
+          <h2>Capítulo 2 — Auditoría de Propuestas</h2>
+          <p><span class="tag">Objetivo</span> Validar calidad de venta y detectar errores.</p>
+          <h3>Lineamientos clave</h3>
+          <ul>
+            <li>Tipo de cambio: comunicado mensualmente (SBS).</li>
+            <li><strong>Emisión rápida:</strong> límites por edad y cúmulo; casos de riesgo/preexistencias a Suscripción; cuestionario COVID para 1ra línea de salud.</li>
+            <li>Documentación vs. montos: hasta $100k (carta + cronograma); &gt;$100k (cronograma + carta + cuestionario financiero n3).</li>
+            <li><strong>Emisión automática:</strong> SA y reglas (DPS en “NO”; edad ≤45; límites por producto).</li>
+            <li>Controles post emisión: muestreo mensual y capacitaciones trimestrales.</li>
+          </ul>
+          <details>
+            <summary>Flujo resumido</summary>
+            <ol>
+              <li>Recepción y registro de propuestas (VISOR).</li>
+              <li>Revisión de status en Acsel-e.</li>
+              <li>Acreditación de 1ra prima.</li>
+              <li>Revisión de cúmulo → derivación a Suscripción si aplica.</li>
+              <li>Transmisión a Acsel-e y regularización de sustento.</li>
+            </ol>
+          </details>
+        </div>
+      </section>
+
+      <!-- CAPITULO 3 -->
+      <section class="grid" id="c3">
+        <div class="card">
+          <h2>Capítulo 3 — Suscripción</h2>
+          <p><span class="tag">Objetivo</span> Procedimientos para emisión/suscripción/entrega de pólizas.</p>
+          <h3>Lineamientos generales</h3>
+          <ul>
+            <li>Casos complejos (salud/ocupación) requieren evaluación adicional.</li>
+            <li>FFAA: siempre por Suscripción.</li>
+            <li>Preexistencias fuera de rangos pueden motivar rechazo (médico auditor).</li>
+            <li>Hipotecarios: SA igual al crédito con cronograma/carta aunque sustentos financieros no alcancen.</li>
+          </ul>
+          <details>
+            <summary>Subprocesos esenciales</summary>
+            <ul>
+              <li>Validación administrativa/médica y file completo (W9/Waiver si aplica).</li>
+              <li>Rechazos (plazos, cartas, archivo, devolución de 1ra prima).</li>
+              <li>Doc. pendientes y exámenes (decisión Médico Auditor).</li>
+              <li>Extraprima/sobreprima (cálculo, carta, aceptación, VB y emisión).</li>
+              <li>Regularización con cambio de propuesta (Plan Garantizado).</li>
+              <li>Emisión de póliza (umbrales de VB, reaseguro tránsito ≥ $300k).</li>
+              <li>Facultativas en Acsel-e y trazabilidad con Área Técnica.</li>
+              <li>Control de pagos de exámenes, envío de pólizas electrónicas y físicas.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      <!-- CAPITULO 4 -->
+      <section class="grid" id="c4">
+        <div class="card">
+          <h2>Capítulo 4 — Entrega de Pólizas a través de Agentes</h2>
+          <p><span class="tag">Objetivo</span> Procedimientos de entrega con trazabilidad.</p>
+          <ul>
+            <li>Recepción de files y control en Excel.</li>
+            <li>Preparación, empaque y despacho.</li>
+            <li>Registro de envío en Sistema de Notificaciones.</li>
+            <li>Validación de recepción y observaciones (faltantes).</li>
+            <li>Coordinación de entrega al cliente por Agente y sustento de entrega.</li>
+            <li>Envío de cargos diarios; comité semanal de validación.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CAPITULOS 5-13 (visibles como tarjetas informativas) -->
+      <section class="grid" id="c5">
+        <div class="card half">
+          <h2>Capítulo 5 — Mantenimiento de Clientes</h2>
+          <p>Contenido no visible en fragmentos. Mantener procedimientos de actualización/datos, atención y soporte de clientes.</p>
+        </div>
+        <div class="card half" id="c6">
+          <h2>Capítulo 6 — Endosos, Bajas y Rehabilitación</h2>
+          <p>Control de permisos y requisitos para endosos simples/ complejos; bajas y rehabilitaciones.</p>
+        </div>
+        <div class="card half" id="c7">
+          <h2>Capítulo 7 — Siniestros</h2>
+          <p>Proceso general y casos con SURA; requisitos y comunicación al cliente.</p>
+        </div>
+        <div class="card half" id="c8">
+          <h2>Capítulo 8 — Préstamos y Rescates</h2>
+          <p>Controles de desembolsos, productos y gestión documental.</p>
+        </div>
+        <div class="card half" id="c9">
+          <h2>Capítulo 9</h2>
+          <p>Índice visto; detalle no presente en fragmentos.</p>
+        </div>
+        <div class="card half" id="c10">
+          <h2>Capítulo 10 — Recaudación y Cobranzas</h2>
+          <ul>
+            <li>Cierre/inicio de periodo</li>
+            <li>Ventas digitales y rechazos</li>
+            <li>Débito automático (carga/recepción archivos)</li>
+            <li>Ventanilla y planilla</li>
+            <li>Recaudación manual (POS, autorización, link)</li>
+            <li>Validaciones y reportes</li>
+            <li>Comunicaciones de cobranza</li>
+            <li>Afiliaciones y modificaciones de vía</li>
+            <li>Devoluciones, cesiones y primas en exceso</li>
+          </ul>
+        </div>
+        <div class="card half" id="c11">
+          <h2>Capítulo 11 — Estados de Cuenta</h2>
+          <p>Generación y envío; descripción del flujo operativo.</p>
+        </div>
+        <div class="card half" id="c12">
+          <h2>Capítulo 12 — Sistema de Notificaciones</h2>
+          <p>Objetivo, alcance y reglas generales de notificación.</p>
+        </div>
+        <div class="card half" id="c13">
+          <h2>Capítulo 13 — Proveedores</h2>
+          <p>Selección, evaluación y reevaluación de proveedores. Referencias a laboratorios y médicos auditores.</p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Anexos</h2>
+          <ul>
+            <li>Anexo 1: Documentos para Liquidación de Siniestro</li>
+            <li>Anexo 2: Plazos para el envío de Pólizas a clientes</li>
+            <li>Anexo 3: Flujo para ingreso de pólizas facultativas en ACSEL-E</li>
+          </ul>
+          <p class="muted">Para auditorías y revisiones internas, descarga el <span class="kbd">JSON</span> con toda la estructura (menú lateral → “Archivos”).</p>
+        </div>
+      </section>
+
+      <div class="footer">© 2025 Interseguro — Documento de uso interno. Este resumen no reemplaza al manual oficial.</div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
