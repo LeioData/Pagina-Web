@@ -1,333 +1,59 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Manual de Vida Individual V2 — Resumen Operativo</title>
-<style>
-  :root {
-    --primary:#0A66C2;
-    --primary-700:#084c91;
-    --bg:#f4f8ff;
-    --card:#ffffff;
-    --text:#0e1726;
-    --muted:#5b6b8c;
-    --accent:#e6f0ff;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-    background: linear-gradient(180deg, #eaf2ff 0%, #f7fbff 30%, #ffffff 100%);
-    color: var(--text);
-  }
-  .layout {
-    display: grid;
-    grid-template-columns: 290px 1fr;
-    min-height: 100vh;
-  }
-  aside {
-    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-700) 100%);
-    color: white;
-    padding: 22px 18px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-  }
-  .brand {
-    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
-  }
-  .brand .logo {
-    width: 36px; height: 36px; border-radius: 10px;
-    background: white; display: grid; place-items: center; color: var(--primary);
-    font-weight: 800;
-  }
-  .brand .title { font-weight: 700; line-height: 1.1; }
-  .meta {
-    font-size: 12px; opacity: .9; margin-bottom: 18px;
-  }
-  nav a {
-    display: block; color: white; text-decoration: none; padding: 10px 12px; border-radius: 10px;
-    margin: 4px 0; font-size: 14px; opacity: .95;
-  }
-  nav a:hover { background: rgba(255,255,255,.12); }
-  nav .section { margin-top: 14px; margin-bottom: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; opacity: .75; }
-  main { padding: 28px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"100%\" height=\"100%\"><defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop stop-color=\"%23eaf2ff\"/><stop offset=\"1\" stop-color=\"%23ffffff\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23g)\"/></svg>') no-repeat center/cover; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .hero {
-    background: var(--card);
-    border: 1px solid #eaf0ff;
-    padding: 22px;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(10,102,194,.08);
-  }
-  h1 { margin: 0 0 6px; font-size: 28px; }
-  .pill {
-    display: inline-block; background: var(--accent); color: var(--primary); padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;
-  }
-  .grid {
-    display: grid; grid-template-columns: repeat(12,1fr); gap: 18px; margin-top: 22px;
-  }
-  .card {
-    grid-column: span 12;
-    background: var(--card);
-    border: 1px solid #eaf0ff;
-    border-radius: 14px;
-    padding: 18px;
-    box-shadow: 0 6px 20px rgba(10,102,194,.07);
-  }
-  @media(min-width: 900px){
-    .card.half { grid-column: span 6; }
-  }
-  h2 { font-size: 20px; margin: 0 0 12px; }
-  h3 { font-size: 16px; margin: 12px 0 8px; color: var(--primary-700); }
-  p, li { line-height: 1.55; }
-  details { background: #fbfdff; border: 1px solid #eaf0ff; border-radius: 12px; padding: 10px 12px; margin: 10px 0; }
-  summary { cursor: pointer; font-weight: 600; color: var(--primary-700); }
-  .tag { display: inline-block; padding: 4px 8px; background: #eff5ff; color: #265fa5; border-radius: 999px; font-size: 12px; margin: 2px 6px 2px 0;}
-  .footer { text-align: center; color: var(--muted); font-size: 12px; margin: 26px 0 10px; }
-  .kbd { background:#eef3ff; border:1px solid #cfe0ff; border-bottom-width:2px; padding:2px 6px; border-radius:6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .notice { background: #eaf4ff; border-left: 4px solid var(--primary); padding: 10px 12px; border-radius: 10px; color:#133b6b; }
-</style>
-</head>
-<body>
-<div class="layout">
-  <aside>
-    <div class="brand">
-      <div class="logo">VI</div>
-      <div class="title">
-        Manual de Vida Individual<br/>
-        <span style="font-size:12px; opacity:.8;">Resumen operativo</span>
-      </div>
-    </div>
-    <div class="meta">
-      <div><strong>Vigencia:</strong> 22 mayo 2025</div>
-      <div><strong>Área:</strong> VP Operaciones y Técnica</div>
-    </div>
-    <nav>
-      <div class="section">Contenido</div>
-      <a href="#intro">Introducción</a>
-      <a href="#c1">Cap. 1 - Venta</a>
-      <a href="#c2">Cap. 2 - Auditoría</a>
-      <a href="#c3">Cap. 3 - Suscripción</a>
-      <a href="#c4">Cap. 4 - Entrega por Agentes</a>
-      <a href="#c5">Cap. 5 - Mantenimiento</a>
-      <a href="#c6">Cap. 6 - Endosos/Bajas/Rehab</a>
-      <a href="#c7">Cap. 7 - Siniestros</a>
-      <a href="#c8">Cap. 8 - Préstamos/Rescates</a>
-      <a href="#c9">Cap. 9</a>
-      <a href="#c10">Cap. 10 - Recaudación</a>
-      <a href="#c11">Cap. 11 - EECC</a>
-      <a href="#c12">Cap. 12 - Notificaciones</a>
-      <a href="#c13">Cap. 13 - Proveedores</a>
-      <div class="section">Archivos</div>
-      <a href="manual_vida_individual.json" download>Descargar JSON</a>
-    </nav>
-  </aside>
-  <main>
-    <div class="container">
-      <section class="hero" id="intro">
-        <span class="pill">Manual de Vida Individual V2</span>
-        <h1>Resumen ejecutivo y operativo</h1>
-        <p>Este documento sintetiza los procedimientos clave del <strong>Manual de Vida Individual</strong>, conservando el detalle relevante para análisis y gestión, en una interfaz cómoda (azul/blanco) para lectura y navegación.</p>
-        <div class="notice"><strong>Nota:</strong> Algunas secciones del manual completo no estuvieron visibles en los fragmentos procesados. Este resumen prioriza lo disponible y verificable.</div>
-      </section>
+<!-- ZONA DE PRUEBAS DE ICONOS Y BOTONES (puedes pegar al final de tu body) -->
+<div style="margin:50px auto; max-width:700px; background:#162038; border-radius:24px; padding:28px 18px">
+  <h2 style="color:#64FFDA;font-size:1.4em;">Prueba de iconos y botones para WhatsApp y Calendly</h2>
+  <div style="display:flex;flex-wrap:wrap; gap:24px; align-items:center;">
 
-      <!-- CAPITULO 1 -->
-      <section class="grid" id="c1">
-        <div class="card">
-          <h2>Capítulo 1 — Venta de Seguros Vida Individual</h2>
-          <p><span class="tag">Objetivo</span> Establecer procesos para la venta de Vida Individual.</p>
-          <h3>Base legal</h3>
-          <ul>
-            <li>Ley N° 29946 (Contrato de Seguro)</li>
-            <li>Res. SBS 4143-2019 (Conducta de Mercado)</li>
-            <li>Res. SBS 04036-2022 (Reclamos y requerimientos)</li>
-            <li>Res. SBS 1121-2017 (Comercialización de Seguros)</li>
-            <li>Ley N° 29733 (Protección de Datos Personales)</li>
-            <li>Res. SBS 3198-2013 (Pago de Primas)</li>
-            <li>Res. SBS 3202-2013 (Gestión y Pago de Siniestros)</li>
-            <li>Ley N° 29571 (Código del Consumidor)</li>
-          </ul>
-          <h3>Productos (Vida Free)</h3>
-          <ul>
-            <li><strong>Vida Free:</strong> Fondo garantizado, devolución hasta 150%.</li>
-            <li><strong>Vida Free Plus:</strong> Devolución hasta 150% o mantener fondo para rentabilidad.</li>
-            <li><strong>Vida Free Total:</strong> Retiro de fondo al término y continuidad de cobertura adicional.</li>
-          </ul>
-          <details>
-            <summary>Procedimiento — Registro y cotización</summary>
-            <ul>
-              <li>Consentimiento de datos (SMS/WhatsApp/correo).</li>
-              <li>Cotizador en ADN (SA, %DV, plan, frecuencia, periodos).</li>
-              <li>Histórico de cotizaciones → “Solicitud Digital”.</li>
-              <li>Validación biométrica (Keynua) y firma digital por SMS (6 dígitos).</li>
-            </ul>
-          </details>
-          <details>
-            <summary>Procedimiento — Cierre de venta</summary>
-            <ul>
-              <li>Ajuste/elección de cotización; actualización de datos.</li>
-              <li>Ingreso de contratante, beneficiarios y DPS.</li>
-              <li>Validación biométrica y firma por SMS.</li>
-              <li>Link de pago de 1ra prima + afiliación a cobro recurrente.</li>
-            </ul>
-          </details>
-          <details>
-            <summary>Procedimiento — Pago 1ra prima y entrega (Emisión/Suscripción)</summary>
-            <ul>
-              <li>Pago y afiliación (misma u otra tarjeta).</li>
-              <li>Validación de ACP y documentos mínimos/adicionales.</li>
-              <li>Envío a Emisión y Suscripción; reprocesos si faltan documentos.</li>
-            </ul>
-          </details>
-          <details>
-            <summary>Procedimiento — Pago 1ra prima y entrega (ADC)</summary>
-            <ul>
-              <li>Modificación de cotización → actualización de datos.</li>
-              <li>Registro de solicitud, DPS, biometría, firma; workflow de cambio.</li>
-              <li>Traspaso de 1ra prima y verificación documental.</li>
-            </ul>
-          </details>
-        </div>
-      </section>
+    <!-- WhatsApp: SVG CDN -->
+    <a class="fab" href="https://wa.me/51913004414?text=Hola%20estoy%20interesado" target="_blank" rel="noopener"
+       style="box-shadow:0 2px 24px #0fa;margin:0">
+      <img src="https://raw.githubusercontent.com/VDIGITALPE/cdn-static/main/icons/whatsapp-green.svg" width="38" alt="SVG CDN"/>
+      <div style="text-align:center;color:#41e6c6;font-size:.95em">SVG CDN<br>Oficial</div>
+    </a>
+    <!-- WhatsApp: emoji unicode -->
+    <a class="fab" href="https://wa.me/51913004414?text=Hola%20estoy%20interesado" target="_blank" rel="noopener">
+      <span style="font-size:42px;line-height:42px;display:block">📱</span>
+      <div style="text-align:center;color:#41e6c6;font-size:.95em">Emoji<br>📱</div>
+    </a>
+    <!-- WhatsApp: PNG fallback -->
+    <a class="fab" href="https://wa.me/51913004414?text=Hola%20estoy%20interesado" target="_blank" rel="noopener">
+      <img src="https://pngimg.com/d/whatsapp_PNG95148.png" width="38" style="background:#fff;border-radius:8px" alt="PNG Whats"/>
+      <div style="text-align:center;color:#41e6c6;font-size:.95em">PNG web</div>
+    </a>
+    <!-- WhatsApp: SVG animado (parpadeo CSS) -->
+    <a class="fab icon-anim" href="https://wa.me/51913004414?text=Hola%20estoy%20interesado" target="_blank" rel="noopener">
+      <svg width="38" height="38" viewBox="0 0 38 38"><circle cx="19" cy="19" r="19" fill="#25d366"/><path d="M28.7 23.52c-.42.21-2.46 1.19-2.84 1.33-.38.14-.66.21-.95-.21-.28-.42-1.09-1.2-1.33-1.43-.24-.24-.49-.28-.91-.07-.42.21-1.65.61-3.15-1.19-1.17-1.33-1.65-2.37-1.85-2.76-.2-.38-.02-.59.19-.79.19-.19.42-.5.64-.75.21-.25.28-.42.42-.7.14-.28.07-.53-.04-.75-.11-.21-.95-2.22-1.2-3.02-.32-.82-.66-.71-.91-.72-.23-.01-.5-.02-.78-.02s-.7.1-1.07.47c-.38.37-1.39 1.35-1.39 3.28 0 1.92 1.42 3.72 1.66 3.98.23.26 2.8 4.08 6.79 5.55.95.33 1.69.53 2.26.68.95.3 1.82.26 2.5.16.77-.12 2.36-.96 2.7-1.9.33-.94.33-1.75.23-1.9-.11-.15-.39-.23-.81-.41z" fill="#fff"/></svg>
+      <div style="text-align:center;color:#41e6c6;font-size:.95em">SVG animado</div>
+    </a>
+    <style>
+      .fab { display:inline-block; background:#112240; border:1.5px solid #3df7d5; border-radius:18px; box-shadow:0 2px 10px #111a34a2; width:56px; height:56px; margin-bottom:7px; margin-right:0; margin-left:0; text-align:center; line-height:1; vertical-align:middle; text-decoration:none; transition:box-shadow .18s;}
+      .fab img, .fab svg, .fab span {display:block; margin:auto;}
+      .fab:hover { box-shadow: 0 4px 32px #64FDDA99;}
+      .icon-anim svg {animation:bounce 1.1s infinite alternate;}
+      @keyframes bounce {0%{transform:translateY(0)}100%{transform:translateY(-5px)}}
+    </style>
 
-      <!-- CAPITULO 2 -->
-      <section class="grid" id="c2">
-        <div class="card">
-          <h2>Capítulo 2 — Auditoría de Propuestas</h2>
-          <p><span class="tag">Objetivo</span> Validar calidad de venta y detectar errores.</p>
-          <h3>Lineamientos clave</h3>
-          <ul>
-            <li>Tipo de cambio: comunicado mensualmente (SBS).</li>
-            <li><strong>Emisión rápida:</strong> límites por edad y cúmulo; casos de riesgo/preexistencias a Suscripción; cuestionario COVID para 1ra línea de salud.</li>
-            <li>Documentación vs. montos: hasta $100k (carta + cronograma); &gt;$100k (cronograma + carta + cuestionario financiero n3).</li>
-            <li><strong>Emisión automática:</strong> SA y reglas (DPS en “NO”; edad ≤45; límites por producto).</li>
-            <li>Controles post emisión: muestreo mensual y capacitaciones trimestrales.</li>
-          </ul>
-          <details>
-            <summary>Flujo resumido</summary>
-            <ol>
-              <li>Recepción y registro de propuestas (VISOR).</li>
-              <li>Revisión de status en Acsel-e.</li>
-              <li>Acreditación de 1ra prima.</li>
-              <li>Revisión de cúmulo → derivación a Suscripción si aplica.</li>
-              <li>Transmisión a Acsel-e y regularización de sustento.</li>
-            </ol>
-          </details>
-        </div>
-      </section>
 
-      <!-- CAPITULO 3 -->
-      <section class="grid" id="c3">
-        <div class="card">
-          <h2>Capítulo 3 — Suscripción</h2>
-          <p><span class="tag">Objetivo</span> Procedimientos para emisión/suscripción/entrega de pólizas.</p>
-          <h3>Lineamientos generales</h3>
-          <ul>
-            <li>Casos complejos (salud/ocupación) requieren evaluación adicional.</li>
-            <li>FFAA: siempre por Suscripción.</li>
-            <li>Preexistencias fuera de rangos pueden motivar rechazo (médico auditor).</li>
-            <li>Hipotecarios: SA igual al crédito con cronograma/carta aunque sustentos financieros no alcancen.</li>
-          </ul>
-          <details>
-            <summary>Subprocesos esenciales</summary>
-            <ul>
-              <li>Validación administrativa/médica y file completo (W9/Waiver si aplica).</li>
-              <li>Rechazos (plazos, cartas, archivo, devolución de 1ra prima).</li>
-              <li>Doc. pendientes y exámenes (decisión Médico Auditor).</li>
-              <li>Extraprima/sobreprima (cálculo, carta, aceptación, VB y emisión).</li>
-              <li>Regularización con cambio de propuesta (Plan Garantizado).</li>
-              <li>Emisión de póliza (umbrales de VB, reaseguro tránsito ≥ $300k).</li>
-              <li>Facultativas en Acsel-e y trazabilidad con Área Técnica.</li>
-              <li>Control de pagos de exámenes, envío de pólizas electrónicas y físicas.</li>
-            </ul>
-          </details>
-        </div>
-      </section>
+    <!-- Calendly SVG CDN -->
+    <a class="fab" href="https://calendly.com/leonardoandre1054" target="_blank" rel="noopener">
+      <img src="https://raw.githubusercontent.com/VDIGITALPE/cdn-static/main/icons/calendar-apple-like.svg" width="38" alt="SVG CDN Cal"/>
+      <div style="text-align:center;color:#41e6c6;font-size:.95em">SVG CDN</div>
+    </a>
+    <!-- Calendly emoji -->
+    <a class="fab" href="https://calendly.com/leonardoandre1054" target="_blank" rel="noopener">
+      <span style="font-size:42px;display:block">📅</span>
+      <div style="text-align:center;color:#41e6c6;font-size:.95em">Emoji 📅</div>
+    </a>
+    <!-- Calendly PNG alternativa -->
+    <a class="fab" href="https://calendly.com/leonardoandre1054" target="_blank" rel="noopener">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747310.png" width="38" alt="PNG Cal" style="border-radius:6px;background:#fff;">
+      <div style="text-align:center;color:#41e6c6;font-size:.95em">PNG Cal</div>
+    </a>
+    <!-- Calendly SVG animado -->
+    <a class="fab icon-anim" href="https://calendly.com/leonardoandre1054" target="_blank" rel="noopener">
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="5" y="7" width="28" height="25" rx="5" fill="#fff" stroke="#61d9e6" stroke-width="2"/><rect x="10" y="16" width="18" height="2" rx="1" fill="#61d9e6"/><rect x="10" y="22" width="10" height="2" rx="1" fill="#61d9e6"/></svg>
+      <div style="text-align:center;color:#41e6c6;font-size:.95em">SVG animado</div>
+    </a>
 
-      <!-- CAPITULO 4 -->
-      <section class="grid" id="c4">
-        <div class="card">
-          <h2>Capítulo 4 — Entrega de Pólizas a través de Agentes</h2>
-          <p><span class="tag">Objetivo</span> Procedimientos de entrega con trazabilidad.</p>
-          <ul>
-            <li>Recepción de files y control en Excel.</li>
-            <li>Preparación, empaque y despacho.</li>
-            <li>Registro de envío en Sistema de Notificaciones.</li>
-            <li>Validación de recepción y observaciones (faltantes).</li>
-            <li>Coordinación de entrega al cliente por Agente y sustento de entrega.</li>
-            <li>Envío de cargos diarios; comité semanal de validación.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- CAPITULOS 5-13 (visibles como tarjetas informativas) -->
-      <section class="grid" id="c5">
-        <div class="card half">
-          <h2>Capítulo 5 — Mantenimiento de Clientes</h2>
-          <p>Contenido no visible en fragmentos. Mantener procedimientos de actualización/datos, atención y soporte de clientes.</p>
-        </div>
-        <div class="card half" id="c6">
-          <h2>Capítulo 6 — Endosos, Bajas y Rehabilitación</h2>
-          <p>Control de permisos y requisitos para endosos simples/ complejos; bajas y rehabilitaciones.</p>
-        </div>
-        <div class="card half" id="c7">
-          <h2>Capítulo 7 — Siniestros</h2>
-          <p>Proceso general y casos con SURA; requisitos y comunicación al cliente.</p>
-        </div>
-        <div class="card half" id="c8">
-          <h2>Capítulo 8 — Préstamos y Rescates</h2>
-          <p>Controles de desembolsos, productos y gestión documental.</p>
-        </div>
-        <div class="card half" id="c9">
-          <h2>Capítulo 9</h2>
-          <p>Índice visto; detalle no presente en fragmentos.</p>
-        </div>
-        <div class="card half" id="c10">
-          <h2>Capítulo 10 — Recaudación y Cobranzas</h2>
-          <ul>
-            <li>Cierre/inicio de periodo</li>
-            <li>Ventas digitales y rechazos</li>
-            <li>Débito automático (carga/recepción archivos)</li>
-            <li>Ventanilla y planilla</li>
-            <li>Recaudación manual (POS, autorización, link)</li>
-            <li>Validaciones y reportes</li>
-            <li>Comunicaciones de cobranza</li>
-            <li>Afiliaciones y modificaciones de vía</li>
-            <li>Devoluciones, cesiones y primas en exceso</li>
-          </ul>
-        </div>
-        <div class="card half" id="c11">
-          <h2>Capítulo 11 — Estados de Cuenta</h2>
-          <p>Generación y envío; descripción del flujo operativo.</p>
-        </div>
-        <div class="card half" id="c12">
-          <h2>Capítulo 12 — Sistema de Notificaciones</h2>
-          <p>Objetivo, alcance y reglas generales de notificación.</p>
-        </div>
-        <div class="card half" id="c13">
-          <h2>Capítulo 13 — Proveedores</h2>
-          <p>Selección, evaluación y reevaluación de proveedores. Referencias a laboratorios y médicos auditores.</p>
-        </div>
-      </section>
-
-      <section class="grid">
-        <div class="card">
-          <h2>Anexos</h2>
-          <ul>
-            <li>Anexo 1: Documentos para Liquidación de Siniestro</li>
-            <li>Anexo 2: Plazos para el envío de Pólizas a clientes</li>
-            <li>Anexo 3: Flujo para ingreso de pólizas facultativas en ACSEL-E</li>
-          </ul>
-          <p class="muted">Para auditorías y revisiones internas, descarga el <span class="kbd">JSON</span> con toda la estructura (menú lateral → “Archivos”).</p>
-        </div>
-      </section>
-
-      <div class="footer">© 2025 Interseguro — Documento de uso interno. Este resumen no reemplaza al manual oficial.</div>
-    </div>
-  </main>
+  </div>
+  <div style="color:silver;font-size:13px;margin-top:20px"><em>Prueba iconos y revisa cuál carga mejor y se ve más profesional en tu entorno.<br>Luego copia solo la opción que más te guste a tu HTML principal.</em></div>
 </div>
-</body>
-</html>
